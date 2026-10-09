@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}About | EZTime{% endblock %}
+{% block content %}
+<h1>About EZTime</h1>
+<p class="lede">EZTime shows the local mean solar time for your longitude. It was created by <a href="https://kannan.bearblog.dev" target="_blank" rel="noopener noreferrer">Kannan Murugapandian</a>.</p>
+
+<h2>What is local mean solar time?</h2>
+<p>The Earth turns 360 degrees in 24 hours, so the Sun appears to move across 15 degrees of longitude every hour, or one degree every four minutes. Local mean solar time is the time kept by an imaginary "mean" Sun that moves at a steady speed. Every place on the same meridian shares the same mean solar time.</p>
+
+<h2>How EZTime calculates it</h2>
+<p>The calculation is: solar time = UTC + (longitude x 4 minutes), with east positive and west negative. For example, Singapore at about 103.8 degrees east is roughly 6 hours 55 minutes ahead of UTC in solar time, while its civil time zone is UTC+8.</p>
+
+<h2>Why it differs from your clock</h2>
+<ul>
+    <li>Civil time follows time zones, which are wide bands that are often adjusted for politics and convenience.</li>
+    <li>Daylight saving time shifts civil time but does not change the Sun's position.</li>
+    <li>A sundial shows apparent solar time. It can differ from mean solar time by up to about 16 minutes through the year (the equation of time), which EZTime does not include.</li>
+    <li>Your location is estimated from your IP address, which can be off by many kilometres, or wrong on VPNs and mobile networks.</li>
+</ul>
+
+<h2>Where your location comes from</h2>
+<p>The home page estimates your longitude from your IP address using a third-party lookup service. If you prefer, the <a href="/customcalc/">calculator</a> lets you enter a longitude yourself, or read it from your device in your browser. See the <a href="/privacy/">Privacy Policy</a> for details.</p>
+{% endblock %}

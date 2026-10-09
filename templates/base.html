@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EZTime | Local solar time{% endblock %}</title>
+    <meta name="description" content="EZTime shows the local mean solar time for your longitude.">
+    <link rel="icon" href="/logoo/" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="/">EZTime</a>
+            <nav class="nav" aria-label="Main">
+                <a href="/"{% if request.endpoint == 'home' %} aria-current="page"{% endif %}>Clock</a>
+                <a href="/fullscreenclock/">Full screen</a>
+                <a href="/customcalc/"{% if request.endpoint == 'customcalc' %} aria-current="page"{% endif %}>Calculator</a>
+                <a href="/whatisthis/"{% if request.endpoint == 'whatisthis' %} aria-current="page"{% endif %}>About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>Created by <a href="https://kannan.bearblog.dev" target="_blank" rel="noopener noreferrer">Kannan Murugapandian</a>.</p>
+            <p><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; &copy; 2026</p>
+        </div>
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

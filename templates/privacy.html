@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy | EZTime{% endblock %}
+{% block content %}
+<h1>Privacy Policy</h1>
+<p class="updated">Last updated: October 2026</p>
+
+<p>EZTime is a free project run by Kannan Murugapandian. It has no accounts, forms or comments. Contact: <a href="mailto:kannan.mp@proton.me">kannan.mp@proton.me</a>.</p>
+
+<h2>1. Your IP address</h2>
+<p>To show a clock for your location, the server reads your IP address, which is personal data under the GDPR. It sends that address to the free IP geolocation service <a href="https://ip-api.com/" target="_blank" rel="noopener noreferrer">ip-api.com</a>, which returns an approximate longitude, city and country. The free plan of that service works over plain HTTP, so this request is not encrypted. We keep the result in the server's memory for up to one hour, to avoid repeated lookups, and then it is discarded. Memory is cleared whenever the server restarts. We do not write your IP address to a file or database. ip-api.com handles the address under its own policy.</p>
+
+<h2>2. The calculator</h2>
+<p>If you use the calculator's "Use my device location" button, your browser asks for permission and the location is read and used inside your browser only. It is not sent to EZTime or to any third party by our code.</p>
+
+<h2>3. Hosting and server logs</h2>
+<p>EZTime is hosted on PythonAnywhere. Like most web hosts, PythonAnywhere may automatically record technical data such as your IP address, the time of the request, the page requested and your browser type in server logs. These logs are managed by PythonAnywhere under its own <a href="https://www.pythonanywhere.com/privacy_v2/" target="_blank" rel="noopener noreferrer">privacy policy</a>, and we do not use them to identify or track you. Servers may be outside your country, so data may be transferred internationally.</p>
+
+<h2>4. Cookies and tracking</h2>
+<p>EZTime sets no cookies and uses no analytics, advertising or tracking tools. Pages load no fonts, scripts or images from third-party servers.</p>
+
+<h2>5. Legal basis and retention</h2>
+<p>We process your IP address to provide the clock you asked for and to keep the site secure, which is our legitimate interest (GDPR Art. 6(1)(f)). The application keeps it only in temporary memory as described above. Retention by ip-api.com and PythonAnywhere is set by those companies.</p>
+
+<h2>6. Your rights</h2>
+<p>Depending on where you live (for example under the GDPR or Singapore's PDPA), you may have the right to access, correct or delete personal data held about you, to object to its processing, and to complain to your local data protection authority. Because the application keeps no lasting record of visitors, there is usually nothing for us to retrieve, but you can email us and we will help where we reasonably can.</p>
+
+<h2>7. Children</h2>
+<p>EZTime does not ask for personal information and is not directed at collecting data from children. The only data processed is the IP address that every web request contains.</p>
+
+<h2>8. Changes</h2>
+<p>We may update this policy. The date at the top shows the latest version.</p>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Local solar time</h1>
+<p class="lede">The mean solar time at your longitude, calculated from the approximate location of your IP address.</p>
+
+{% if ok %}
+<section class="panel">
+    <span class="label">Local mean solar time</span>
+    <div id="clock" class="clock" data-offset="{{ offset_seconds }}">{{ clock }}</div>
+    <p id="date" class="date">{{ date_text }}</p>
+</section>
+<dl class="facts">
+    <div><dt>Longitude</dt><dd>{{ longitude_text }}</dd></div>
+    <div><dt>Offset from UTC</dt><dd>{{ offset_text }}</dd></div>
+    <div><dt>Approximate location</dt><dd>{{ place }}</dd></div>
+</dl>
+<p class="note">This is solar time, not your civil time zone. IP-based locations can be wrong, especially on mobile networks or VPNs. Read <a href="/whatisthis/">how it works</a>, or enter your own longitude in the <a href="/customcalc/">calculator</a>.</p>
+<p class="actions"><a href="/fullscreenclock/">Open full screen clock</a></p>
+{% else %}
+<section class="panel">
+    <p>We could not work out an approximate location for your connection, so there is no clock to show.</p>
+    <p>You can still enter a longitude yourself in the <a href="/customcalc/">calculator</a>.</p>
+</section>
+{% endif %}
+{% endblock %}
+{% block scripts %}{% if ok %}<script src="{{ url_for('static', filename='clock.js') }}" defer></script>{% endif %}{% endblock %}

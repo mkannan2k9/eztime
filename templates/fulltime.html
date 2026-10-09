@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full screen clock | EZTime</title>
+    <link rel="icon" href="/logoo/" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="full">
+    {% if ok %}
+    <div id="clock" class="clock" data-offset="{{ offset_seconds }}">{{ clock }}</div>
+    <p id="date" class="date">{{ date_text }}</p>
+    <p class="fine">Local mean solar time for {{ longitude_text }}, based on the approximate location of your IP address. It is not your civil time zone and may differ from your watch. <a href="/">Back to EZTime</a></p>
+    <script src="{{ url_for('static', filename='clock.js') }}" defer></script>
+    {% else %}
+    <p>We could not work out an approximate location for your connection.</p>
+    <p><a href="/customcalc/">Use the calculator</a> &middot; <a href="/">Back to EZTime</a></p>
+    {% endif %}
+</body>
+</html>

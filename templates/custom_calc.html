@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Calculator | EZTime{% endblock %}
+{% block content %}
+<h1>Solar time calculator</h1>
+<p class="lede">Enter a longitude to see its local mean solar time right now.</p>
+
+<form class="calc" onsubmit="return false;" autocomplete="off">
+    <label for="lon">Longitude (degrees)</label>
+    <input type="number" id="lon" step="any" min="-180" max="180" placeholder="e.g. 103.82">
+    <p class="hint">East is positive and west is negative. For example, Singapore is about 103.8 and New York is about -74.0.</p>
+    <button type="button" id="use-location" class="secondary">Use my device location</button>
+    <p class="hint" id="loc-status">Optional. Your browser will ask permission, and the location stays in your browser.</p>
+    <p class="error" id="error" role="alert"></p>
+</form>
+
+<section class="result" id="result" hidden>
+    <div class="panel">
+        <span class="label">Local mean solar time</span>
+        <div class="clock" id="res-time">--:--:--</div>
+        <p class="date" id="res-date"></p>
+    </div>
+    <dl class="facts">
+        <div><dt>Offset from UTC</dt><dd id="res-offset"></dd></div>
+        <div style="grid-column: span 2;"><dt>Working</dt><dd id="res-working"></dd></div>
+    </dl>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='calc.js') }}" defer></script>{% endblock %}
